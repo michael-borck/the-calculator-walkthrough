@@ -1,3 +1,7 @@
+<!-- BADGES:START -->
+[![best-practices](https://img.shields.io/badge/-best--practices-blue?style=flat-square)](https://github.com/topics/best-practices) [![code-kata](https://img.shields.io/badge/-code--kata-blue?style=flat-square)](https://github.com/topics/code-kata) [![jupyter-notebook](https://img.shields.io/badge/-jupyter--notebook-blue?style=flat-square)](https://github.com/topics/jupyter-notebook) [![programming-practice](https://img.shields.io/badge/-programming--practice-blue?style=flat-square)](https://github.com/topics/programming-practice) [![python](https://img.shields.io/badge/-python-3776ab?style=flat-square)](https://github.com/topics/python) [![edtech](https://img.shields.io/badge/-edtech-4caf50?style=flat-square)](https://github.com/topics/edtech) [![calculator](https://img.shields.io/badge/-calculator-blue?style=flat-square)](https://github.com/topics/calculator) [![coding-practice](https://img.shields.io/badge/-coding--practice-blue?style=flat-square)](https://github.com/topics/coding-practice) [![educational](https://img.shields.io/badge/-educational-blue?style=flat-square)](https://github.com/topics/educational) [![programming-exercise](https://img.shields.io/badge/-programming--exercise-blue?style=flat-square)](https://github.com/topics/programming-exercise)
+<!-- BADGES:END -->
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michael-borck/the_calculator_walkthrough.git/HEAD?labpath=calculator_best.ipynb)
 
 # The Calculator Walkthrough

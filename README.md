@@ -5,6 +5,10 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/michael-borck/the_calculator_walkthrough.git/HEAD?labpath=calculator_best.ipynb)
 
 # The Calculator Walkthrough
+
+**▶ [calculatorwalkthrough.borck.education](https://calculatorwalkthrough.borck.education/)** — the walkthrough front door, with every notebook openable in Colab.
+
+Part of [programming.borck.education](https://programming.borck.education). Companion piece: [One Calculator, Three Paradigms](https://programmingparadigms.borck.education).
 An exercise in programming to help hone your skills through practice and repetition.
 This notebook is a complete walkthrough with notes and explanations. It can be used as a reference, a study guide and provide one possible answer that you can use to compare with your attempt. This notebook is too long to be a [CodeKatas](http://codekata.com/) but aspires to similar principles. 
 

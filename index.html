@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Calculator Walkthrough</title>
+  <meta name="description" content="A programming kata in Jupyter notebooks: one simple calculator taken from first design to best practice, applying the habits of readable, reliable Python.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #e8e6e3; --gray-1: #9a9a9e; --gray-2: #5e5e63; --gray-3: #2a2a30;
+      --gray-4: #1e1e23; --gray-5: #16161a; --black: #0a0a0b;
+      --accent: #22c55e; --font: 'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace; --radius: 12px;
+    }
+    body { font-family: var(--font); background: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar { display: flex; align-items: center; gap: 1rem; padding: 0 1.5rem; height: 48px; border-bottom: 1px solid var(--gray-3); position: sticky; top: 0; z-index: 10; background: var(--black); }
+    .topbar-logo { font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: var(--white); white-space: nowrap; }
+    .topbar-logo .dot { color: var(--gray-2); }
+    .topbar-logo .tld { color: var(--accent); }
+    .topbar-spacer { flex: 1; }
+    .topbar-links { display: flex; gap: 1.25rem; }
+    .topbar-links a { font-size: 0.78rem; color: var(--gray-1); }
+    .topbar-links a:hover { color: var(--accent); text-decoration: none; }
+    .hero { text-align: center; padding: 4rem 2rem 2.5rem; max-width: 760px; margin: 0 auto; }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1rem; }
+    .hero p { color: var(--gray-1); font-size: 1.02rem; }
+    .section { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem; }
+    .section h2 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 0.75rem; }
+    .section > p { color: var(--gray-1); font-size: 0.95rem; margin-bottom: 1rem; }
+    .nb-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .nb-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; padding: 0.7rem 0.9rem; background: var(--gray-5); border: 1px solid var(--gray-4); border-radius: var(--radius); font-size: 0.9rem; }
+    .nb-name { font-family: var(--font-mono); font-size: 0.82rem; color: var(--white); }
+    .nb-desc { color: var(--gray-1); flex: 1; min-width: 12rem; }
+    .nb-links { display: flex; gap: 0.75rem; font-size: 0.8rem; white-space: nowrap; }
+    .practices { list-style: none; counter-reset: p; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0.4rem 1.25rem; color: var(--gray-1); font-size: 0.9rem; }
+    .practices li { counter-increment: p; padding-left: 1.9rem; position: relative; }
+    .practices li::before { content: counter(p); position: absolute; left: 0; top: 0.15rem; width: 1.35rem; height: 1.35rem; border: 1px solid var(--gray-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); }
+    .site-footer { border-top: 1px solid var(--gray-3); margin-top: 3rem; padding: 2rem 1.5rem; text-align: center; color: var(--gray-2); font-size: 0.78rem; }
+    .site-footer .footer-links { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .site-footer a { color: var(--gray-1); }
+    .site-footer a:hover { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-logo" href="/">calculatorwalkthrough<span class="dot">.</span>borck<span class="dot">.</span><span class="tld">education</span></a>
+  <div class="topbar-spacer"></div>
+  <nav class="topbar-links">
+    <a href="https://programming.borck.education">Programming</a>
+    <a href="https://borck.education">Education</a>
+    <a href="https://github.com/michael-borck/the-calculator-walkthrough">GitHub</a>
+  </nav>
+</div>
+
+<section class="hero">
+  <h1>One simple calculator, taken from first design to best practice.</h1>
+  <p>A programming kata in Jupyter notebooks. The benefit comes from the process, not the result: copy the challenge, attempt it yourself, then compare against a fully annotated walkthrough.</p>
+</section>
+
+<section class="section">
+  <h2>The walkthrough</h2>
+  <p>Follow the notebooks in order — each revisits the same calculator with higher standards. Open any notebook directly in Google Colab (no install) or read it in nbviewer.</p>
+  <ul class="nb-list">
+    <li><span class="nb-name">calculator_design.ipynb</span><span class="nb-desc">The challenge and the design — start here</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_design.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_design.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_good_development.ipynb</span><span class="nb-desc">A good first working version, development style</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_good_development.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_good_development.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_good_production.ipynb</span><span class="nb-desc">The same version, cleaned up for production</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_good_production.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_good_production.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_better.ipynb</span><span class="nb-desc">Better structure: functions, validation, exceptions</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_better.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_better.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_better_production.ipynb</span><span class="nb-desc">The better version, production-ready</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_better_production.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_better_production.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_best.ipynb</span><span class="nb-desc">The best-practice version — the full walkthrough with notes</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_best.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_best.ipynb">nbviewer</a></span></li>
+    <li><span class="nb-name">calculator_eval.ipynb</span><span class="nb-desc">Evaluating the versions against each other</span><span class="nb-links"><a href="https://colab.research.google.com/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_eval.ipynb">Colab</a><a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/calculator_eval.ipynb">nbviewer</a></span></li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Supporting modules</h2>
+  <p>The later versions factor code into modules, built in their own notebooks: <a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/my_math.ipynb">my_math</a>, <a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/user_interface.ipynb">user_interface</a>, and <a href="https://nbviewer.org/github/michael-borck/the-calculator-walkthrough/blob/main/utilities.ipynb">utilities</a>.</p>
+</section>
+
+<section class="section">
+  <h2>The ten best practices</h2>
+  <p>The habits the walkthrough applies, version by version:</p>
+  <ol class="practices">
+    <li>Use a code repository — small, frequent commits</li>
+    <li>Follow style guidelines (PEP&nbsp;8)</li>
+    <li>Correct broken code immediately — exceptions, validation, testing</li>
+    <li>Use PyPI instead of reinventing — <code>import</code> it</li>
+    <li>Use the right data types and structures</li>
+    <li>Write readable code — meaningful names and comments</li>
+    <li>Create readable documentation — docstrings</li>
+    <li>Use virtual environments</li>
+    <li>Avoid anti-patterns — specific imports, specific exceptions</li>
+    <li>Follow the Zen of Python — try <code>import this</code></li>
+  </ol>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="https://programming.borck.education">programming.borck.education</a>
+    <a href="https://programmingparadigms.borck.education">One Calculator, Three Paradigms</a>
+    <a href="https://borck.dev">borck.dev</a>
+  </div>
+  <p>Michael Borck · Perth, WA · <a href="mailto:hello@borck.dev">hello@borck.dev</a></p>
+</footer>
+
+</body>
+</html>
